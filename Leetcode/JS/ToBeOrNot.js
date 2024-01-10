@@ -25,22 +25,10 @@
  * @return {Object}
  */
 var expect = function(val) {
-  return {
-    x: val,
-    toBe: function(secondVal) {
-      if (val !== secondVal) {
-        throw new Error("Not Equal");
-      }
-      return true;
-    },
-    notToBe: function(secondVal) {
-      if (val === secondVal) {
-        throw new Error("Equal");
-      }
-      return true;
-    },
-  }
+  let toBe = (anotherVal) => { if(val === anotherVal) return true; else throw new Error("Not Equal")}
+  let notToBe = (anotherVal) => { if(val !== anotherVal) return true; else throw new Error("Equal") }
 
+  return {toBe, notToBe}
 };
 
 /**
@@ -48,5 +36,5 @@ var expect = function(val) {
  * expect(5).notToBe(5); // throws "Equal"
  */
 
-// expect(5).toBe(5); // true
+expect(5).toBe(5); // true
 expect(5).notToBe(5); // throws "Equal"
