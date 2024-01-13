@@ -1,3 +1,4 @@
+// selection sort (выбора)
 const arr = [1,2,4,6,7,1,2,4,5,7,8,11,12]
 let count = 0;
 
